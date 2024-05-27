@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">MSAL-Python-WebApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{{ auth_uri }}">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <hr />
+</body>
+
+<h1>Microsoft identity platform code samples</h1>
+
+<h2>{% block title %} Welcome {% endblock %}</h2>
+<p>You are not currently signed-in. <a href='{{ auth_uri }}'>Sign In</a> to your account to continue.</p>
+
+<h3>Integrating Microsoft Entra ID with a Python web application written in Flask</h2>
+  <p>
+    This sample demonstrates how to sign users in and acquire tokens to call an API secured by Microsoft identity
+    platform.
+  </p>
+
+  <img src="{{ url_for('static', filename='/img/topology.png') }}" class="image" />
+
+  
+  <h2>About</h2>
+  <p>These code samples are built and maintained by Microsoft to demonstrate usage of our authentication libraries
+    with
+    the Microsoft identity platform. Common authentication and authorization scenarios are implemented in several
+    application types, development languages, and frameworks.
+  </p>
+  <p> Detailed instructions on building, configuring and running this code sample can be found at <a href="https://github.com/Azure-Samples/ms-identity-docs-code-python/tree/main/flask-web-app">https://github.com/Azure-Samples/ms-identity-docs-code-python/tree/main/flask-web-app</a>   </p>
+  {% endblock %}
+
+  

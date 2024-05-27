@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">MSAL-Python-WebApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{{ url_for('logout') }}">Sign Out</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <hr />
+</body>
+
+<h1>Microsoft identity platform code samples</h1>
+
+<h2 style="color: red;">{% block title %} Oops... {% endblock %}</h2>
+<p>Something went wrong while processing the request.</p>
+
+<div class="alert alert-danger" role="alert">
+  <b>{{ result.get("error") }}:</b> {{ result.get("error_description") }}.
+</div>
+
+<p>The full error details are displayed below:</p>
+
+<pre style="background-color: lightgrey;">{{ result |tojson(indent=4) }}</pre> <!-- Just a generic json viewer -->
+
+<h3>What you can try next:</h3>
+{% if 65001 in result.get("error_codes") %}
+  <h5>AADST{{ result.get("error_codes")[0] }} ({{ result.get("error") }})</h5>
+
+  <h6>Option 1: Grant Incremental Consent</h6>
+  <ul>
+    <li>Navigate to the <a href="/consent?scopes={{ scopes[0] }}">Consent</a> page to grant consent to the application.
+    </li>
+  </ul>
+
+  <h6>Option 2: Perform Admin Consent</h6>
+  <ol>
+    <li>Have the admin (user with the Global/Company administrator role or a Application Administrator role) access the application normally.</li>
+    <li>When the consent screen appears, review the request permissions.<br />
+      <b>Note:</b> If an admin is not sure what the permissions allow, then the admin must work with the application owner to understand the permissions and what they are used for.
+    </li>
+    <li>If the admin approves the permissions requested, ensure the checkbox is selected to <b>"Consent on behalf of your organization"</b>.</li>
+  </ol>
+{% else %}
+  <p>No applicable error advice was found.</p> 
+{% endif %}
+<hr />
+<p><a href="/">Click Here</a> to return to the home page.</p>
+
+
+{% endblock %}

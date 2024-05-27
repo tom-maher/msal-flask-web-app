@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">MSAL-Python-WebApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{{ auth_uri }}">Consent</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr />
+</body>
+
+<h1>Microsoft identity platform code samples</h1>
+
+<h2>{% block title %} Consent Required{% endblock %}</h2>
+
+<p>You have been redirected to this page because the current consent for a downstream API call was insufficient. Note the modification of the "prompt" parameter below:</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Param</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Authority</th>
+            <td>{{ auth_uri.split('?')[0] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[0].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[0].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[1].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[1].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[2].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[2].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[3].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[3].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[4].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[4].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[5].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[5].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[6].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[6].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[7].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[7].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row">{{ auth_uri.split('?')[1].split('&')[8].split('=')[0] }}</th>
+            <td>{{ auth_uri.split('?')[1].split('&')[8].split('=')[1] }}</td>
+        </tr>
+        <tr>
+            <th scope="row" style="color: red;">{{ auth_uri.split('?')[1].split('&')[9].split('=')[0] }}</th>
+            <td style="color: red;">{{ auth_uri.split('?')[1].split('&')[9].split('=')[1] }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Click the button below to grant consent for the application to access the requested permissions:</p>
+<a class="btn btn-success" href="{{ auth_uri }}" role="button">Consent</a>
+
+{% endblock %}
