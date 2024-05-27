@@ -1,11 +1,11 @@
 import os
 
-AUTHORITY = "https://login.microsoftonline.com/dev.mahercloud.com"
+AUTHORITY = "https://login.microsoftonline.com/<<tenantId>>"
 
 # Application (client) ID of app registration
-CLIENT_ID = "af00cf71-463c-4ee1-9f48-e1b9aea1a821"
+CLIENT_ID = "/<<clientId>>"
 # Application's generated client secret: never check this into source control!
-CLIENT_SECRET = "Gbp8Q~NsCnB8eti6RSi3rtqjt1yjViXtJYlqYbcN"
+CLIENT_SECRET = "/<<clientSecret>>"
 
 REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
