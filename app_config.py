@@ -3,9 +3,9 @@ import os
 AUTHORITY = "https://login.microsoftonline.com/<<tenantId>>"
 
 # Application (client) ID of app registration
-CLIENT_ID = "/<<clientId>>"
+CLIENT_ID = "<<clientId>>"
 # Application's generated client secret: never check this into source control!
-CLIENT_SECRET = "/<<clientSecret>>"
+CLIENT_SECRET = ""
 
 REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
