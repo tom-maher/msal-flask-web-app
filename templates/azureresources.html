@@ -1,28 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('index') }}">MSAL-Python-WebApp</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="{{ url_for('logout') }}">Sign Out</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <hr />
-</body>
 
-<h1>Microsoft identity platform code samples</h1>
-
-<h2>{% block title %} Profile: {{result.displayName}} {% endblock %}</h2>
-<p>Hi {{result.givenName}}! The Graph API returned the following data from your profile.</p>
+<h2>{% block title %} Azure Resources {% endblock %}</h2>
+<p>The Azure Resource Manager API returned the following data from your request.</p>
 <pre style="background-color: lightgrey;">{{ result |tojson(indent=4) }}</pre> <!-- Just a generic json viewer -->
 
 <p>Your access token is displayed below - copy and paste this into a JWT decoder such as jwt.ms to view additional information about the claims presented in this token.</p>
